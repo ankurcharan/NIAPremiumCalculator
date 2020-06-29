@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-    <script src="./js/index.js"></script>
+    
 </head>
 <body>
     
@@ -19,6 +19,7 @@
 
     <h3>Car/Bike - rate chnages accordingly</h3>
 
+    <h1>Third Party</h1>
     <div class="container">
 
         <form action="">
@@ -29,8 +30,8 @@
             <div class="form-group">
                 <label for="bundled">Act Only/Bundled</label>
                 <select class="form-control" id="bundled">
-                  <option selected>Act Only</option>
-                  <option>Bundled</option>
+                  <option value="act_only" selected>Act Only</option>
+                  <option value="bundled">Bundled</option>
                 </select>
             </div>
 
@@ -42,12 +43,24 @@
                 <label class="form-check-label" for="compulsoryPA">
                   Compulsory PA
                 </label>
+                <br>
+
+                <div class="d-none" id="compulsoryPAform">
+                    <label for="payears">Years</label>
+                    <select class="form-control" id="payears">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
             </div>
 
             <div id="compulsoryPAoutput">
-                <label id="xx" for=""></label>
+                Compulsory PA Amount: 
+                <label id="compulsoryPAamount">&#x20b9; 275</label>
             </div>
 
+            
             <h3>Legal Liabiluty</h3>
             <label for="legalPerson">No of person</label>
             <input id="legalPerson" class="form-control" type="number" placeholder="Person Count * 50">
@@ -150,5 +163,7 @@
 
         </form>
     </div>
+
+    <script src="./js/index.js"></script>
 </body>
 </html>
