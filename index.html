@@ -14,7 +14,7 @@
     
 </head>
 <body>
-    
+ 
     <h1 class="">Insurance - Private Car</h1>
 
     <h3>Car/Bike - rate chnages accordingly</h3>
@@ -24,22 +24,26 @@
 
         <form action="">
 
-            <label for="engineCC">Engine CC</label>
-            <input id="engineCC" class="form-control" type="number" placeholder="Engine CC">
-
             <div class="form-group">
-                <label for="bundled">Act Only/Bundled</label>
+
+              <label for="engineCC">Engine CC</label>
+              <input id="engineCC" class="form-control" type="number" placeholder="Engine CC" min="0">
+
+
+              <label for="bundled">Act Only/Bundled</label>
                 <select class="form-control" id="bundled">
                   <option value="act_only" selected>Act Only</option>
                   <option value="bundled">Bundled</option>
                 </select>
             </div>
 
-            <div>basic rate from sheet</div>
+            <div>
+              <p id="basicRate">Basic Rate: &#x20b9; 0</p>
+            </div>
             <br>
 
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked onchange="heyy()">
+                <input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
                 <label class="form-check-label" for="compulsoryPA">
                   Compulsory PA
                 </label>
@@ -49,7 +53,7 @@
                     <label for="payears">Years</label>
                     <select class="form-control" id="payears">
                         <option value="1">1</option>
-                        <option value="2">2</option>
+                        <option value="1">2</option>
                         <option value="3">3</option>
                     </select>
                 </div>
@@ -60,35 +64,51 @@
                 <label id="compulsoryPAamount">&#x20b9; 275</label>
             </div>
 
-            
-            <h3>Legal Liabiluty</h3>
-            <label for="legalPerson">No of person</label>
-            <input id="legalPerson" class="form-control" type="number" placeholder="Person Count * 50">
+
+            <h5>Legal Liability</h5>
+
+            <label for="legalPerson">No. of People</label>
+            <input id="legalPerson" class="form-control" type="number" placeholder="Person Count * 50" min="0" max="50">
+            <label id="legalLiabilityAmount">LL Amount: &#x20b9; 0</label>
 
             <br>
 
-            <h4>PA COVER</h4>
-            <label for="legalPerson">No of person</label>
-            <input id="legalPerson" class="form-control" type="number" placeholder="Person COont">
+            <h5>PA Cover</h5>
+
+            <label for="paPerson">No. of People</label>
+            <input id="paPerson" class="form-control" type="number" placeholder="Person Count" min="0" max="50">
 
             <div class="form-group">
-                <label for="PACover">Act Only/Bundled</label>
-                <select class="form-control" id="PACover">
-                  <option selected>50,000</option>
-                  <option>1,00,000</option>
+                <label for="PACoverAmount">PA Cover Amount</label>
+                <select class="form-control" id="PACoverAmount">
+                  <option value="50000" selected>50,000</option>
+                  <option value="100000">1,00,000</option>
+                  <option value="105000">1,50,000</option>
+                  <option value="200000">2,00,000</option>
+                  <option value="205000">2,50,000</option>
+                  <option value="300000">3,00,000</option>
+                  <option value="305000">3,50,000</option>
+                  <option value="400000">4,00,000</option>
+                  <option value="405000">4,50,000</option>
+                  <option value="500000">5,00,000</option>
                 </select>
             </div>
 
-            <p>pacover / 1 lac * 50 * person</p>
+            <label id="paCoverAmount">PA Cover Amount: &#x20b9; 0</label>
 
-            <p>in sab ko jod do plus gst</p>
+            <hr>
+            <div>
+              <p id="sumThirdParty">Sum Third Party : &#x20b9; 0</p>
+              <p id="sumThirdPartyGST">GST: &#x20b9; 0</p>
+              <p id="sumThirdPartyTotal">Total: &#x20b9; 0</p>
+            </div>
 
 
 
             <h1>Package</h1>
 
-            <label for="engineCC">Insured Declared Value</label>
-            <input id="engineCC" class="form-control" type="number" placeholder="insuredDeclaredValue">
+            <label for="engineC2">Insured Declared Value</label>
+            <input id="engineC2" class="form-control" type="number" placeholder="insuredDeclaredValue">
 
             <div class="form-group">
                 <label for="bundled">Age</label>
@@ -102,8 +122,8 @@
             <p>rate = age aur cc ke hisaab se table = 3.34</p>
             <p>basic premium = idv * rate -> show</p>
 
-            <label for="engineCC">Discount</label>
-            <input id="engineCC" class="form-control" type="number" placeholder="Engine CC" step="0.01" min="0.0" max="100.0">
+            <label for="engineC1">Discount</label>
+            <input id="engineC1" class="form-control" type="number" placeholder="Engine CC" step="0.01" min="0.0" max="100.0">
 
             <p>disc premium = basic premium pe discount deke kya bna</p>
 
