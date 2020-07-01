@@ -19,153 +19,287 @@
 
 		<h3>Car/Bike - rate chnages accordingly</h3>
 
-		<h1>Third Party</h1>
+		
+
+		<div class="container">
+			<div class="row">
+
+				<div class="col col-12 col-sm-12">
+					<h1>Third Party</h1>
+				</div>
+				
+				<div class="col col-12 col-sm-12 col-md-6">
+					<label for="engineCC">Engine CC</label>
+					<input id="engineCC" class="form-control" type="number" placeholder="Engine CC" min="0">
+				</div>
+				<div class="col col-12 col-sm-12 col-md-6">
+					<label for="bundled">Act Only/Bundled</label>
+					<select class="form-control" id="bundled">
+						<option value="act_only" selected>Act Only</option>
+						<option value="bundled">Bundled</option>
+					</select>
+				</div>
+				
+				<div id="" class="col col-12">
+					<br>
+
+					Basic Rate: 
+					<strong id="basicRate">
+						&#x20b9; 0
+					</strong>
+					<!-- <p id="basicRate">Basic Rate: &#x20b9; 0</p> -->
+				</div>
+
+				<br><br>
+
+				<div class="col col-12 col-sm-12 col-md-6">
+
+					<br>
+					&nbsp; &nbsp;
+					<input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
+					<label class="form-check-label" for="compulsoryPA">
+						Compulsory PA
+					</label>
+				</div>
+
+				<div class="col col-12 col-sm-12 col-md-6">
+					<div class="d-none" id="compulsoryPAform">
+						<label for="payears">Years</label>
+						<select class="form-control" id="payears">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+						</select>
+					</div>
+				</div>
+
+				<br><br>
+				<div class="col col-12 col-sm-12" id="compulsoryPAoutput">
+					<br>
+					Compulsory PA Amount: 
+					<strong id="compulsoryPAamount">
+						&#x20b9; 275
+					</strong>
+				</div>
+			
+				<br>
+
+			</div>
+
+			<hr>
+
+			<div class="row">
+				<div class="col col-12 col-sm-12">
+					<h5>Legal Liability</h5>
+				</div>
+
+				<div class="col col-12 col-sm-6 col-md-3">
+					<label for="legalPerson">No. of People</label>
+				</div>
+				<div class="col col-12 col-sm-6 col-md-5">
+					<input id="legalPerson" class="form-control" type="number" placeholder="Person Count * 50" min="0" max="50">
+				</div>
+				<div class="col col-12 col-sm-12 col-md-4"
+					style="text-align: right;"
+				>
+					LL Amount:
+					<strong id="legalLiabilityAmount"> &#x20b9; 0</strong>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="row">
+				<div class="col col-12 col-sm-12">
+					<h5>PA Cover</h5>
+				</div>
+				<div class="col col-12 col-sm-12 col-md-6">
+					<label for="paPerson">No. of People</label>
+					<input id="paPerson" class="form-control" type="number" placeholder="Person Count" min="0" max="50">
+				</div>
+				<div class="col col-12 col-sm-12 col-md-6">
+					<label for="PACoverAmount">PA Cover Amount</label>
+					<select class="form-control" id="PACoverAmount">
+						<option value="50000" >50,000</option>
+						<option value="100000" selected>1,00,000</option>
+						<option value="105000">1,50,000</option>
+						<option value="200000">2,00,000</option>
+						<option value="205000">2,50,000</option>
+						<option value="300000">3,00,000</option>
+						<option value="305000">3,50,000</option>
+						<option value="400000">4,00,000</option>
+						<option value="405000">4,50,000</option>
+						<option value="500000">5,00,000</option>
+					</select>
+				</div>
+
+				<div class="col col-12 col-sm-12 col-md-6">
+					PA Cover Amount:
+					<strong id="paCoverAmount">&#x20b9; 0</strong>
+				</div>
+
+			</div>
+
+			<hr>
+
+			<div class="row">
+
+				<div class="col col-12 col-sm-12 col-md-4">
+					Sum Third Party:
+					<strong id="sumThirdParty">&#x20b9; 0</strong>
+				</div>
+				<div class="col col-12 col-sm-12 col-md-4">
+					GST:
+					<strong id="sumThirdPartyGST">&#x20b9; 0</strong>
+
+				</div>
+				<div class="col col-12 col-sm-12 col-md-4">
+					Total:
+					<strong id="sumThirdPartyTotal">&#x20b9; 0</strong>
+				</div>
+					
+			</div>
+
+			<!--  -->
+			<!-- Package  -->
+			<!--  -->
+
+			<div class="row">
+				<div class="col col-12 col-sm-12">
+					<br>
+					<h1>Package</h1>
+				</div>
+			
+				<div class="col col-12 col-sm-12 col-md-4">
+					<label for="IDVvalue">Insured Declared Value</label>
+				</div>
+				<div class="col col-12 col-sm-12 col-md-8">
+					<input id="IDVvalue" class="form-control" type="number" placeholder="Insured Declared Value" min="0">
+				</div>
+
+				<br><br>
+
+				<div class="col col-12 col-sm-12 col-md-6">
+					<label for="zone">Zone</label>
+					<select class="form-control" id="zone">
+						<option value="0">Zone A</option>
+						<option value="1" selected>Zone B</option>
+					</select>
+				</div>
+				<div class="col col-12 col-sm-12 col-md-6">
+					<label for="age">Age</label>
+					<select class="form-control" id="age">
+						<option value="0" selected>Below 5 Years</option>
+						<option value="1">5-10 Years</option>
+						<option value="2">Above 10 Years</option>
+					</select>
+				</div>
+
+				<div class="col col-12 col-sm-12 col-md-6">
+					<br>
+					Rate:
+					<strong id="packageRate">0 %</strong>
+				</div>
+				<div class="col col-12 col-sm-12 col-md-6" style="text-align: right;">
+					<br>
+					Basic Premium: 
+					<strong id="basicPrem">&#x20b9; 0</strong>
+				</div>
+
+				<div class="col col-12 col-sm-3">
+					<br>
+					<label for="discountPackage">Discount %</label>
+				</div>
+				<div class="col col-12 col-sm-4">
+					<br>
+					<input id="discountPackage" class="form-control" type="number" placeholder="Discount %" step="0.01" min="0.0" max="100.0">				
+				</div>
+				<div class="col col-12 col-sm-5" style="text-align: right;">
+					<br>
+					Discounted Premium: 
+					<strong id="discountPremium">&#x20b9; 0</strong>
+				</div>
+
+				<!-- ncb  -->
+				<div class="col col-12 col-sm-3">
+					<br>
+					<label for="ncb">NCB</label>
+				</div>
+				<div class="col col-12 col-sm-4">
+					<br>
+					<select class="form-control" id="ncb">
+						<option value="0" selected>0</option>
+						<option value="20">20</option>
+						<option value="25">25</option>
+						<option value="35">35</option>
+						<option value="45">45</option>
+						<option value="50">50</option>
+					</select>				
+				</div>
+				<div class="col col-12 col-sm-5"
+				style="text-align: right;">
+					<br>
+					NCB Discount: <strong id='ncbDiscount'>&#x20b9; 0</strong>
+					<br>
+					NCB Premium: <strong id='ncbPremium'>&#x20b9; 0</strong>
+				</div>
+
+
+				<!-- towing cover  -->
+				<div class="col col-12 col-sm-3">
+					<br>
+					<label for="towingCover">Towing Cover</label>
+				</div>
+				<div class="col col-12 col-sm-4">
+					<br>
+					<select class="form-control" id="towingCover">
+						<option value="0"   >0</option>
+						<option value="500" >10,000</option>
+						<option value="1500">20,000</option>
+					</select>			
+				</div>
+				<div class="col col-12 col-sm-5"
+				style="text-align: right;">
+					<br>
+					Charges:
+					<strong id='towingCharges'>&#x20b9; 0</strong>
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col col-12 col-sm-12 col-md-3">
+					<br>
+					Sum Package:
+					<strong id="sumPackage">&#x20b9; 0</strong>
+				</div>
+				<div class="col col-12 col-sm-12 col-md-3">
+					<br>
+					Third Party+Package
+					<strong id="sumThirdPackage">&#x20b9; 0</strong>
+				</div>
+				<div class="col col-12 col-sm-12 col-md-3" style="text-align: right;">
+					<br>
+					GST
+					<strong id="packageGST">&#x20b9; 0</strong>
+				</div>
+				<div class="col col-12 col-sm-12 col-md-3"
+				style="text-align: right;">
+					<br>
+					Total:
+					<strong id="packageTotal">&#x20b9; 0</strong>
+				</div>
+					
+			</div>
+
+		</div>
+
 		<div class="container">
 
 				<form action="">
 
-						<div class="form-group">
-
-							<label for="engineCC">Engine CC</label>
-							<input id="engineCC" class="form-control" type="number" placeholder="Engine CC" min="0">
-
-
-							<label for="bundled">Act Only/Bundled</label>
-								<select class="form-control" id="bundled">
-									<option value="act_only" selected>Act Only</option>
-									<option value="bundled">Bundled</option>
-								</select>
-						</div>
-
-						<div>
-							<p id="basicRate">Basic Rate: &#x20b9; 0</p>
-						</div>
-						<br>
-
-						<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
-								<label class="form-check-label" for="compulsoryPA">
-									Compulsory PA
-								</label>
-								<br>
-
-								<div class="d-none" id="compulsoryPAform">
-										<label for="payears">Years</label>
-										<select class="form-control" id="payears">
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-										</select>
-								</div>
-						</div>
-
-						<div id="compulsoryPAoutput">
-								Compulsory PA Amount: 
-								<label id="compulsoryPAamount">&#x20b9; 275</label>
-						</div>
-
-
-						<h5>Legal Liability</h5>
-
-						<label for="legalPerson">No. of People</label>
-						<input id="legalPerson" class="form-control" type="number" placeholder="Person Count * 50" min="0" max="50">
-						<label id="legalLiabilityAmount">LL Amount: &#x20b9; 0</label>
-
-						<br>
-
-						<h5>PA Cover</h5>
-
-						<label for="paPerson">No. of People</label>
-						<input id="paPerson" class="form-control" type="number" placeholder="Person Count" min="0" max="50">
-
-						<div class="form-group">
-								<label for="PACoverAmount">PA Cover Amount</label>
-								<select class="form-control" id="PACoverAmount">
-									<option value="50000" >50,000</option>
-									<option value="100000" selected>1,00,000</option>
-									<option value="105000">1,50,000</option>
-									<option value="200000">2,00,000</option>
-									<option value="205000">2,50,000</option>
-									<option value="300000">3,00,000</option>
-									<option value="305000">3,50,000</option>
-									<option value="400000">4,00,000</option>
-									<option value="405000">4,50,000</option>
-									<option value="500000">5,00,000</option>
-								</select>
-						</div>
-
-						<label id="paCoverAmount">PA Cover Amount: &#x20b9; 0</label>
-
-						<hr>
-						<div>
-							<p id="sumThirdParty">Sum Third Party : &#x20b9; 0</p>
-							<p id="sumThirdPartyGST">GST: &#x20b9; 0</p>
-							<p id="sumThirdPartyTotal">Total: &#x20b9; 0</p>
-						</div>
-
-
-
-						<h1>Package</h1>
-
-						
-						<div class="form-group">
-
-							<label for="IDVvalue">Insured Declared Value</label>
-							<input id="IDVvalue" class="form-control" type="number" placeholder="Insured Declared Value" min="0">
-
-
-				<label for="zone">Zone</label>
-				<select class="form-control" id="zone">
-					<option value="0">Zone A</option>
-					<option value="1" selected>Zone B</option>
-				</select>
-
-				<label for="age">Age</label>
-					<select class="form-control" id="age">
-					<option value="0" selected>Below 5 Years</option>
-					<option value="1">5-10 Years</option>
-					<option value="2">Above 10 Years</option>
-				</select>
-			</div>
-
-						<div>
-							<p id="packageRate">Rate: %</p>
-							<p id="basicPrem">Basic Premium: &#x20b9; 0</p>
-						</div>
-
-						<label for="discountPackage">Discount %</label>
-						<input id="discountPackage" class="form-control" type="number" placeholder="Discount %" step="0.01" min="0.0" max="100.0">
-
-						<div>
-							<p id="discountPremium">Discount Premium: &#x20b9; 0</p>
-						</div>
-
-						<div class="form-group">
-								<label for="ncb">NCB</label>
-								<select class="form-control" id="ncb">
-									<option value="0" selected>0</option>
-									<option value="20">20</option>
-									<option value="25">25</option>
-									<option value="35">35</option>
-									<option value="45">45</option>
-									<option value="50">50</option>
-								</select>
-						</div>
-
-						<div>
-							<label id='ncbPremium'>NCB Premium: &#x20b9; 0</label>
-						</div>
-
-						<div class="form-group">
-							<label for="bundled">Towing Cover</label>
-							<select class="form-control" id="bundled">
-								<option value="">0</option>
-								<option value="">10000</option>
-								<option value="">20000</option>
-							</select>
-						</div>
-
-
+						<br><br><br><br><br><br>
 						<h1>Enhancement</h1>
 
 					 

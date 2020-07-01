@@ -11,6 +11,7 @@ const zone = document.getElementById('zone');
 const IDVvalue = document.getElementById('IDVvalue');
 const discountPackage = document.getElementById('discountPackage');
 const ncb = document.getElementById('ncb');
+const towingCover = document.getElementById('towingCover');
 // Package Ends
 
 // rates
@@ -26,6 +27,7 @@ let legalLiability = 0;
 let countPAcoverPeople = 0;
 let basicRate = 0;
 let paCoverAmount = 0;
+let sumThirdParty = 0;
 
 function showActOnly() {
     // d-none to hide in bootstrap
@@ -63,16 +65,16 @@ function showBasicRateThirdParty() {
 
     console.log('Basic Rate: ', privateCarBasicRate[x][y]);
     basicRate = privateCarBasicRate[x][y];
-    $('#basicRate').html(`Basic Rate: &#x20b9; ${privateCarBasicRate[x][y]}`);
+    $('#basicRate').html(`&#x20b9; ${privateCarBasicRate[x][y]}`);
 }
 
 function showSumThirdParty() {
-    const sum = basicRate + compPA + legalLiability + paCoverAmount;
-    $('#sumThirdParty').html(`Sum Third Party: &#x20b9; ${sum}`);
-    const gst = 0.18 * sum;
-    $('#sumThirdPartyGST').html(`GST: &#x20b9; ${gst}`);
+    sumThirdParty = basicRate + compPA + legalLiability + paCoverAmount;
+    $('#sumThirdParty').html(`&#x20b9; ${sumThirdParty}`);
+    const gst = 0.18 * sumThirdParty;
+    $('#sumThirdPartyGST').html(`&#x20b9; ${gst}`);
 
-    $('#sumThirdPartyTotal').html(`Total: &#x20b9; ${sum + gst}`);
+    $('#sumThirdPartyTotal').html(`&#x20b9; ${sumThirdParty + gst}`);
 }
 
 engineCCInput.addEventListener('change', (e) => {
@@ -93,7 +95,8 @@ bundled.addEventListener('change', (event) => {
     }
 
     showBasicRateThirdParty();
-    showSumThirdParty();
+    showLegalLiability();
+    showPACoverAmount();
 })
 
 payears.addEventListener('change', (e) => {
@@ -124,12 +127,16 @@ compulsoryPAallow.addEventListener('change', (e) => {
         
 })
 
-legalPerson.addEventListener('change', (e) => {
-    console.log(e.target.value);
-    legalLiability = parseInt(e.target.value) * 50;
-    $('#legalLiabilityAmount').html(`LL Amount: &#x20b9; ${legalLiability}`);
-
+function showLegalLiability() {
+    legalLiability = parseInt(legalPerson.value) * 50;
+    if(bundled.value === 'bundled') {
+        legalLiability = legalLiability * 3;
+    }
+    $('#legalLiabilityAmount').html(`&#x20b9; ${legalLiability}`);
     showSumThirdParty();
+}
+legalPerson.addEventListener('change', () => {
+    showLegalLiability();
 })
 
 /////////////////////
@@ -138,7 +145,10 @@ legalPerson.addEventListener('change', (e) => {
 function showPACoverAmount() {
     let amount = (PACoverAmount.value / 100000) * countPAcoverPeople * 50;
     paCoverAmount = amount;
-    $('#paCoverAmount').html(`PA Cover Amount: &#x20b9; ${amount}`)
+    if(bundled.value === 'bundled') {
+        paCoverAmount = paCoverAmount * 3;
+    }
+    $('#paCoverAmount').html(`&#x20b9; ${paCoverAmount}`)
 
     showSumThirdParty();
 }
@@ -177,6 +187,9 @@ PACoverAmount.addEventListener('change', (e) => {
 let basicPremium = 0;
 let discount = 0;
 let discPrem = 0;
+let towingCharges = 0;
+let sumPack = 0;
+let ncbPremium = 0;
 
 function getPackageRate() {
     // (zone, cc, age)
@@ -209,7 +222,7 @@ function getPackageRate() {
 
 function showPackageRate() {
     const x = getPackageRate();
-    $('#packageRate').html(`Rate: ${x}%`);
+    $('#packageRate').html(`${x}%`);
 
     showBasicPremium();
 }
@@ -232,7 +245,7 @@ function showBasicPremium() {
     const idv = parseInt(IDVvalue.value);
 
     basicPremium = rate * idv;
-    $('#basicPrem').html(`Basic Preimum: &#x20b9; ${basicPremium}`);  
+    $('#basicPrem').html(`&#x20b9; ${basicPremium}`);  
     
     showDiscountPremium();
 }
@@ -244,7 +257,7 @@ IDVvalue.addEventListener('change', () => {
 function showDiscountPremium() {
     // discount = parseFloat(discountPackage.value);
     discPrem = (100 - discount) / 100 * basicPremium;
-    $('#discountPremium').html(`Discount Premium: &#x20b9; ${discPrem}`)
+    $('#discountPremium').html(`&#x20b9; ${discPrem}`)
     showNCBPremium();
 }
 discountPackage.addEventListener('change', (e) => {
@@ -253,9 +266,30 @@ discountPackage.addEventListener('change', (e) => {
 });
 function showNCBPremium() {
     const ncbVal = parseFloat(ncb.value);
-    const zz = discPrem * (100 - ncbVal) / 100;
-    $('#ncbPremium').html(`NCB Premium: &#x20b9; ${zz}`);
+    let ncbDisc = discPrem * ncbVal / 100;
+    ncbPremium = discPrem * (100 - ncbVal) / 100;
+    $('#ncbDiscount').html(`&#x20b9; ${ncbDisc}`)
+    $('#ncbPremium').html(`&#x20b9; ${ncbPremium}`);
+
+    showPackageSum();
 }
 ncb.addEventListener('change', (e) => {
     showNCBPremium();
 })
+
+towingCover.addEventListener('change', (e) => {
+    towingCharges = parseInt(e.target.value);
+    $('#towingCharges').html(`&#x20b9; ${towingCharges}`);
+    showPackageSum();
+})
+
+function showPackageSum() {
+    sumPack = ncbPremium + towingCharges;
+    $('#sumPackage').html(`&#x20b9; ${sumPack}`);
+    let summ = sumPack + sumThirdParty
+    $('#sumThirdPackage').html(`&#x20b9; ${summ}`);
+    let gstSum = 0.18 * summ;
+    $('#packageGST').html(`&#x20b9; ${gstSum}`);
+    let sumTotal = summ + gstSum;
+    $('#packageTotal').html(`&#x20b9; ${sumTotal}`);
+}
