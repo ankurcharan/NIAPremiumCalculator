@@ -1,189 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insurance</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Insurance</title>
 
-    <!-- // bootstrap  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
-    
+		<!-- jquery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<!-- // bootstrap  -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		
 </head>
 <body>
  
-    <h1 class="">Insurance - Private Car</h1>
+		<h1 class="">Insurance - Private Car</h1>
 
-    <h3>Car/Bike - rate chnages accordingly</h3>
+		<h3>Car/Bike - rate chnages accordingly</h3>
 
-    <h1>Third Party</h1>
-    <div class="container">
+		<h1>Third Party</h1>
+		<div class="container">
 
-        <form action="">
+				<form action="">
 
-            <div class="form-group">
+						<div class="form-group">
 
-              <label for="engineCC">Engine CC</label>
-              <input id="engineCC" class="form-control" type="number" placeholder="Engine CC" min="0">
-
-
-              <label for="bundled">Act Only/Bundled</label>
-                <select class="form-control" id="bundled">
-                  <option value="act_only" selected>Act Only</option>
-                  <option value="bundled">Bundled</option>
-                </select>
-            </div>
-
-            <div>
-              <p id="basicRate">Basic Rate: &#x20b9; 0</p>
-            </div>
-            <br>
-
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
-                <label class="form-check-label" for="compulsoryPA">
-                  Compulsory PA
-                </label>
-                <br>
-
-                <div class="d-none" id="compulsoryPAform">
-                    <label for="payears">Years</label>
-                    <select class="form-control" id="payears">
-                        <option value="1">1</option>
-                        <option value="1">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-            </div>
-
-            <div id="compulsoryPAoutput">
-                Compulsory PA Amount: 
-                <label id="compulsoryPAamount">&#x20b9; 275</label>
-            </div>
+							<label for="engineCC">Engine CC</label>
+							<input id="engineCC" class="form-control" type="number" placeholder="Engine CC" min="0">
 
 
-            <h5>Legal Liability</h5>
+							<label for="bundled">Act Only/Bundled</label>
+								<select class="form-control" id="bundled">
+									<option value="act_only" selected>Act Only</option>
+									<option value="bundled">Bundled</option>
+								</select>
+						</div>
 
-            <label for="legalPerson">No. of People</label>
-            <input id="legalPerson" class="form-control" type="number" placeholder="Person Count * 50" min="0" max="50">
-            <label id="legalLiabilityAmount">LL Amount: &#x20b9; 0</label>
+						<div>
+							<p id="basicRate">Basic Rate: &#x20b9; 0</p>
+						</div>
+						<br>
 
-            <br>
+						<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
+								<label class="form-check-label" for="compulsoryPA">
+									Compulsory PA
+								</label>
+								<br>
 
-            <h5>PA Cover</h5>
+								<div class="d-none" id="compulsoryPAform">
+										<label for="payears">Years</label>
+										<select class="form-control" id="payears">
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+										</select>
+								</div>
+						</div>
 
-            <label for="paPerson">No. of People</label>
-            <input id="paPerson" class="form-control" type="number" placeholder="Person Count" min="0" max="50">
-
-            <div class="form-group">
-                <label for="PACoverAmount">PA Cover Amount</label>
-                <select class="form-control" id="PACoverAmount">
-                  <option value="50000" selected>50,000</option>
-                  <option value="100000">1,00,000</option>
-                  <option value="105000">1,50,000</option>
-                  <option value="200000">2,00,000</option>
-                  <option value="205000">2,50,000</option>
-                  <option value="300000">3,00,000</option>
-                  <option value="305000">3,50,000</option>
-                  <option value="400000">4,00,000</option>
-                  <option value="405000">4,50,000</option>
-                  <option value="500000">5,00,000</option>
-                </select>
-            </div>
-
-            <label id="paCoverAmount">PA Cover Amount: &#x20b9; 0</label>
-
-            <hr>
-            <div>
-              <p id="sumThirdParty">Sum Third Party : &#x20b9; 0</p>
-              <p id="sumThirdPartyGST">GST: &#x20b9; 0</p>
-              <p id="sumThirdPartyTotal">Total: &#x20b9; 0</p>
-            </div>
+						<div id="compulsoryPAoutput">
+								Compulsory PA Amount: 
+								<label id="compulsoryPAamount">&#x20b9; 275</label>
+						</div>
 
 
+						<h5>Legal Liability</h5>
 
-            <h1>Package</h1>
+						<label for="legalPerson">No. of People</label>
+						<input id="legalPerson" class="form-control" type="number" placeholder="Person Count * 50" min="0" max="50">
+						<label id="legalLiabilityAmount">LL Amount: &#x20b9; 0</label>
 
-            <label for="engineC2">Insured Declared Value</label>
-            <input id="engineC2" class="form-control" type="number" placeholder="insuredDeclaredValue">
+						<br>
 
-            <div class="form-group">
-                <label for="bundled">Age</label>
-                <select class="form-control" id="bundled">
-                  <option selected>below 5</option>
-                  <option>5-10 yr</option>
-                  <option value="">above 10</option>
-                </select>
-            </div>
+						<h5>PA Cover</h5>
 
-            <p>rate = age aur cc ke hisaab se table = 3.34</p>
-            <p>basic premium = idv * rate -> show</p>
+						<label for="paPerson">No. of People</label>
+						<input id="paPerson" class="form-control" type="number" placeholder="Person Count" min="0" max="50">
 
-            <label for="engineC1">Discount</label>
-            <input id="engineC1" class="form-control" type="number" placeholder="Engine CC" step="0.01" min="0.0" max="100.0">
+						<div class="form-group">
+								<label for="PACoverAmount">PA Cover Amount</label>
+								<select class="form-control" id="PACoverAmount">
+									<option value="50000" >50,000</option>
+									<option value="100000" selected>1,00,000</option>
+									<option value="105000">1,50,000</option>
+									<option value="200000">2,00,000</option>
+									<option value="205000">2,50,000</option>
+									<option value="300000">3,00,000</option>
+									<option value="305000">3,50,000</option>
+									<option value="400000">4,00,000</option>
+									<option value="405000">4,50,000</option>
+									<option value="500000">5,00,000</option>
+								</select>
+						</div>
 
-            <p>disc premium = basic premium pe discount deke kya bna</p>
+						<label id="paCoverAmount">PA Cover Amount: &#x20b9; 0</label>
 
-            <div class="form-group">
-                <label for="bundled">NCB</label>
-                <select class="form-control" id="bundled">
-                  <option selected>0</option>
-                  <option>20</option>
-                  <option value="">25</option>
-                  <option value="">35</option>
-                  <option value="">45</option>
-                  <option value="">50</option>
-                </select>
-            </div>
-
-            <p>ncb prem = dic prem * (100-ncb%)</p>
-
-            <div class="form-group">
-                <label for="bundled">Towing Cover</label>
-                <select class="form-control" id="bundled">
-                  <option value="">0</option>
-                  <option value="">10000</option>
-                  <option value="">20000</option>
-                </select>
-            </div>
+						<hr>
+						<div>
+							<p id="sumThirdParty">Sum Third Party : &#x20b9; 0</p>
+							<p id="sumThirdPartyGST">GST: &#x20b9; 0</p>
+							<p id="sumThirdPartyTotal">Total: &#x20b9; 0</p>
+						</div>
 
 
-            <h1>Enhancement</h1>
 
-           
+						<h1>Package</h1>
 
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
-                <label class="form-check-label" for="compulsoryPA">
-                  NIL depreciation - sheet me se age vs cc
-                </label>
+						
+						<div class="form-group">
 
-                &nbsp; &nbsp; &nbsp;
-
-                <input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
-                <label class="form-check-label" for="compulsoryPA">
-                  Engine Protection - with zero dep or not - 2 options
-                </label>
-
-                &nbsp; &nbsp; &nbsp;
-
-                <input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
-                <label class="form-check-label" for="compulsoryPA">
-                  Consumable - standard rate upto 5 years (same engine prot)
-                </label>
-            </div>
-    
+							<label for="IDVvalue">Insured Declared Value</label>
+							<input id="IDVvalue" class="form-control" type="number" placeholder="Insured Declared Value" min="0">
 
 
-            <br><br><br><br><br><br>
+				<label for="zone">Zone</label>
+				<select class="form-control" id="zone">
+					<option value="0">Zone A</option>
+					<option value="1" selected>Zone B</option>
+				</select>
+
+				<label for="age">Age</label>
+					<select class="form-control" id="age">
+					<option value="0" selected>Below 5 Years</option>
+					<option value="1">5-10 Years</option>
+					<option value="2">Above 10 Years</option>
+				</select>
+			</div>
+
+						<div>
+							<p id="packageRate">Rate: %</p>
+							<p id="basicPrem">Basic Premium: &#x20b9; 0</p>
+						</div>
+
+						<label for="discountPackage">Discount %</label>
+						<input id="discountPackage" class="form-control" type="number" placeholder="Discount %" step="0.01" min="0.0" max="100.0">
+
+						<div>
+							<p id="discountPremium">Discount Premium: &#x20b9; 0</p>
+						</div>
+
+						<div class="form-group">
+								<label for="ncb">NCB</label>
+								<select class="form-control" id="ncb">
+									<option value="0" selected>0</option>
+									<option value="20">20</option>
+									<option value="25">25</option>
+									<option value="35">35</option>
+									<option value="45">45</option>
+									<option value="50">50</option>
+								</select>
+						</div>
+
+						<div>
+							<label id='ncbPremium'>NCB Premium: &#x20b9; 0</label>
+						</div>
+
+						<div class="form-group">
+							<label for="bundled">Towing Cover</label>
+							<select class="form-control" id="bundled">
+								<option value="">0</option>
+								<option value="">10000</option>
+								<option value="">20000</option>
+							</select>
+						</div>
 
 
-        </form>
-    </div>
+						<h1>Enhancement</h1>
 
-    <script src="./js/index.js"></script>
+					 
+
+						<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
+								<label class="form-check-label" for="compulsoryPA">
+									NIL depreciation - sheet me se age vs cc
+								</label>
+
+								&nbsp; &nbsp; &nbsp;
+
+								<input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
+								<label class="form-check-label" for="compulsoryPA">
+									Engine Protection - with zero dep or not - 2 options
+								</label>
+
+								&nbsp; &nbsp; &nbsp;
+
+								<input class="form-check-input" type="checkbox" value="" id="compulsoryPA" checked>
+								<label class="form-check-label" for="compulsoryPA">
+									Consumable - standard rate upto 5 years (same engine prot)
+								</label>
+						</div>
+		
+
+
+						<br><br><br><br><br><br>
+
+
+				</form>
+		</div>
+
+		<script src="./js/index.js"></script>
 </body>
 </html>
