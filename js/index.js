@@ -14,6 +14,10 @@ const ncb = document.getElementById('ncb');
 const towingCover = document.getElementById('towingCover');
 const antiTheft = document.getElementById('antiTheft');
 // Package Ends
+// Enhancements
+const nilDepCheck = document.getElementById('nilDep');
+const ageNilDep = document.getElementById('ageNilDep');
+// Enhancements Ends
 
 // rates
 const privateCarBasicRate = [
@@ -176,13 +180,7 @@ PACoverAmount.addEventListener('change', (e) => {
 
 
 
-//////////////////////////////////////
-//////////////////////////////////////
-//////////////////////////////////////
-////////////// PACKAGE ///////////////
-//////////////////////////////////////
-//////////////////////////////////////
-//////////////////////////////////////
+
 
 let basicPremium = 0;
 let discount = 0;
@@ -305,7 +303,7 @@ function showPackageSum() {
 
 
 antiTheft.addEventListener('change', (e) => {
-    console.log(e.target.value);
+    console.log(e.target.checked);
     console.log(typeof(e.target.value));
 
     if($('#antiTheft').is(":checked")) {
@@ -316,4 +314,65 @@ antiTheft.addEventListener('change', (e) => {
     }  
 
     showPackageSum();
+})
+
+
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+////////// ENCHANCEMENT //////////////
+//////////////////////////////////////
+//////////////////////////////////////
+//////////////////////////////////////
+let nilDepPrice = 0;
+
+function showNILDepPrice() {
+    // upto 1500c, above 1500cc
+    // upto 5th year
+    const nilDepRates = [
+        [0.40, 0.45],
+        [0.50, 0.55],
+        [0.65, 0.70],
+        [0.85, 0.90],
+        [1.05, 1.10]
+    ];
+
+    let y = 0;
+    const age = ageNilDep.value;
+    if(engineCC <= 1500) {
+        y = 0;
+    } else {
+        y = 1;
+    }
+
+    const rateNilDep = nilDepRates[age][y];
+    const idvValue = IDVvalue.value;
+
+    $('#nilDepRate').html(`${rateNilDep} %`);
+    nilDepPrice = rateNilDep / 100 * idvValue;
+
+    $('#nilDepPrice').html(`&#x20b9; ${nilDepPrice}`)
+
+}
+
+nilDepCheck.addEventListener('change', (e) => {
+
+    console.log(e.target.checked);
+
+    if(e.target.checked === false) {
+        nilDepPrice = 0;
+        $('#nilDepRate').html(`0 %`);
+        $('#nilDepPrice').html(`&#x20b9; ${0}`);
+        return;
+    }
+
+    showNILDepPrice();
+})
+
+
+ageNilDep.addEventListener('change', (e) => {
+
+    if(nilDepCheck.checked) {
+        showNILDepPrice();
+    }
 })
