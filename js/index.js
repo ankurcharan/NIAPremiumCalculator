@@ -12,6 +12,7 @@ const IDVvalue = document.getElementById('IDVvalue');
 const discountPackage = document.getElementById('discountPackage');
 const ncb = document.getElementById('ncb');
 const towingCover = document.getElementById('towingCover');
+const antiTheft = document.getElementById('antiTheft');
 // Package Ends
 
 // rates
@@ -123,8 +124,7 @@ compulsoryPAallow.addEventListener('change', (e) => {
         $('#compulsoryPAform').addClass('d-none');
         compPA = 0;
         $('#compulsoryPAamount').html(`&#x20b9; ${compPA}`);
-    }
-        
+    }  
 })
 
 function showLegalLiability() {
@@ -190,6 +190,7 @@ let discPrem = 0;
 let towingCharges = 0;
 let sumPack = 0;
 let ncbPremium = 0;
+let antiTheftDiscount = false;
 
 function getPackageRate() {
     // (zone, cc, age)
@@ -285,6 +286,14 @@ towingCover.addEventListener('change', (e) => {
 
 function showPackageSum() {
     sumPack = ncbPremium + towingCharges;
+
+    if(antiTheftDiscount === true) {
+
+        const twoPointFive = 0.025 * sumPack;
+        const subtract = Math.min(twoPointFive, 500);
+        $('#antiTheftDisc').html(`&#x20b9; ${subtract}`);
+        sumPack -= subtract;
+    }
     $('#sumPackage').html(`&#x20b9; ${sumPack}`);
     let summ = sumPack + sumThirdParty
     $('#sumThirdPackage').html(`&#x20b9; ${summ}`);
@@ -293,3 +302,18 @@ function showPackageSum() {
     let sumTotal = summ + gstSum;
     $('#packageTotal').html(`&#x20b9; ${sumTotal}`);
 }
+
+
+antiTheft.addEventListener('change', (e) => {
+    console.log(e.target.value);
+    console.log(typeof(e.target.value));
+
+    if($('#antiTheft').is(":checked")) {
+        antiTheftDiscount = true;
+    } else {
+        antiTheftDiscount = false;
+        $('#antiTheftDisc').html(`&#x20b9; ${0}`);
+    }  
+
+    showPackageSum();
+})
