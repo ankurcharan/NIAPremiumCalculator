@@ -330,18 +330,11 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col col-12">
-					&nbsp; &nbsp;
-					<input class="form-check-input" type="checkbox" value="" id="nilDep">
-					<label class="form-check-label" for="nilDep">
-						NIL depreciation
-					</label>
-				</div>
 
 				<div class="col col-12 col-sm-12 col-md-3">
 					<label for="ageNilDep">Age</label>
 				</div>
-				<div class="col col-12 col-sm-12 col-md-4">
+				<div class="col col-12 col-sm-12 col-md-9">
 					<select class="form-control" id="ageNilDep">
 						<option value="0" selected>For 1st Year</option>
 						<option value="1">For 2nd Year</option>
@@ -350,13 +343,53 @@
 						<option value="4">For 5th Year</option>					
 					</select>
 				</div>
-				<div class="col col-12 col-sm-12 col-md-5"
+
+				<div class="col col-12 col-sm-4 col-md-6">
+					<br>
+					&nbsp; &nbsp;
+					<input class="form-check-input" type="checkbox" value="" id="nilDep">
+					<label class="form-check-label" for="nilDep">
+						NIL depreciation
+					</label>
+				</div>
+
+				
+				<div class="col col-12 col-sm-8 col-md-6"
 				style="text-align: right;">
+					<br>
 					NIL Depreciation Rate:
 					<strong id='nilDepRate'>0 %</strong>
 					<br>
 					NIL Depreciation:
 					<strong id='nilDepPrice'>&#x20b9; 0</strong>
+				</div>
+
+
+				<div class="col col-12 col-sm-3 col-md-3">
+					<br>
+					&nbsp; &nbsp;
+					<input class="form-check-input" type="checkbox" value="" id="engineProtection">
+					<label class="form-check-label" for="engineProtection">
+						Engine Protection
+					</label>
+				</div>
+
+				<div class="col col-12 col-sm-4 col-md-4">
+					<br>
+					<select class="form-control" id="engineZeroDep">
+						<option value="0" selected>With Zero Dep</option>
+						<option value="1">Without Zero Dep</option>			
+					</select>
+				</div>
+
+				<div class="col col-12 col-sm-5 col-md-5"
+				style="text-align: right;">
+					<br>
+					EngineProtection Rate:
+					<strong id='engineProtRate'>0 %</strong>
+					<br>
+					EngineProtection:
+					<strong id='engineProtPrice'>&#x20b9; 0</strong>
 				</div>
 			</div>
 
@@ -371,13 +404,6 @@
 
 						<div class="form-check">
 
-
-								&nbsp; &nbsp; &nbsp;
-
-								<input class="form-check-input" type="checkbox" value="" id="compulsoryPA12" checked>
-								<label class="form-check-label" for="compulsoryPA12">
-									Engine Protection - with zero dep or not - 2 options
-								</label>
 
 								&nbsp; &nbsp; &nbsp;
 

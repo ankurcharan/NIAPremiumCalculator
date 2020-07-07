@@ -324,7 +324,12 @@ antiTheft.addEventListener('change', (e) => {
 //////////////////////////////////////
 //////////////////////////////////////
 //////////////////////////////////////
+
+const engineProtection = document.getElementById('engineProtection');
+const engineZeroDep = document.getElementById('engineZeroDep');
+
 let nilDepPrice = 0;
+let engineProtPrice = 0;
 
 function showNILDepPrice() {
     // upto 1500c, above 1500cc
@@ -374,5 +379,45 @@ ageNilDep.addEventListener('change', (e) => {
 
     if(nilDepCheck.checked) {
         showNILDepPrice();
+    }
+    if(engineProtection.checked) {
+        showEngineProtectionCharges();
+    }
+})
+
+function showEngineProtectionCharges() {
+
+    // row = zero dep | col = age
+    const engineProtectionRates = [
+        [0.25, 0.25, 0.25, 0.25, 0.25],     // without zero dep
+        [0.26, 0.28, 0.30, 0.35, 0.40]      // with zero dep
+    ];
+
+    if (engineProtection.checked === false) {
+        // show zero
+        engineProtPrice = 0;
+        $('#engineProtRate').html(`${0} %`);
+        $('#engineProtPrice').html(`&#x20b9; ${0}`)
+    } else {
+        const age = ageNilDep.value;
+        const zeroDep = engineZeroDep.value;
+
+        const rate = engineProtectionRates[zeroDep][age];
+        const idvValue = IDVvalue.value;
+
+        $('#engineProtRate').html(`${rate} %`);
+        engineProtPrice = rateNilDep / 100 * idvValue;
+
+        $('#engineProtPrice').html(`&#x20b9; ${engineProtPrice}`)
+    }
+}
+
+engineProtection.addEventListener('change', () => {
+    showEngineProtectionCharges();
+})
+
+engineZeroDep.addEventListener('change', () => {
+    if(engineProtection.checked) {
+        showEngineProtectionCharges();
     }
 })
