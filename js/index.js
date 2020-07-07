@@ -327,9 +327,11 @@ antiTheft.addEventListener('change', (e) => {
 
 const engineProtection = document.getElementById('engineProtection');
 const engineZeroDep = document.getElementById('engineZeroDep');
+const consumableCheck = document.getElementById('consumableCheck');
 
 let nilDepPrice = 0;
 let engineProtPrice = 0;
+let consumablePrice = 0;
 
 function showNILDepPrice() {
     // upto 1500c, above 1500cc
@@ -383,6 +385,9 @@ ageNilDep.addEventListener('change', (e) => {
     if(engineProtection.checked) {
         showEngineProtectionCharges();
     }
+    if(consumableCheck.checked) {
+        showConsumablePrice();
+    }
 })
 
 function showEngineProtectionCharges() {
@@ -406,7 +411,7 @@ function showEngineProtectionCharges() {
         const idvValue = IDVvalue.value;
 
         $('#engineProtRate').html(`${rate} %`);
-        engineProtPrice = rateNilDep / 100 * idvValue;
+        engineProtPrice = rate / 100 * idvValue;
 
         $('#engineProtPrice').html(`&#x20b9; ${engineProtPrice}`)
     }
@@ -420,4 +425,36 @@ engineZeroDep.addEventListener('change', () => {
     if(engineProtection.checked) {
         showEngineProtectionCharges();
     }
+})
+
+
+
+function showConsumablePrice() {
+
+    const consumableRates = [
+        0.14, 0.16, 0.18, 0.21, 0.25
+    ];
+
+    if(consumableCheck.checked === false) {
+        consumablePrice = 0;
+        // show zero
+        $('#consumableRate').html(`${0} %`);
+        $('#consumablePrice').html(`&#x20b9; ${0}`)
+    } else {
+
+        const age = ageNilDep.value;
+
+        const rate = consumableRates[age];
+        const idvValue = IDVvalue.value;
+
+        $('#consumableRate').html(`${rate} %`);
+        consumablePrice = rate / 100 * idvValue;
+
+        $('#consumablePrice').html(`&#x20b9; ${consumablePrice}`)
+    }
+}
+
+
+consumableCheck.addEventListener('change', () => {
+    showConsumablePrice();
 })
