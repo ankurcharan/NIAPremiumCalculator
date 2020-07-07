@@ -360,6 +360,7 @@ function showNILDepPrice() {
 
     $('#nilDepPrice').html(`&#x20b9; ${nilDepPrice}`)
 
+    showeEnchancementSum();
 }
 
 nilDepCheck.addEventListener('change', (e) => {
@@ -415,6 +416,8 @@ function showEngineProtectionCharges() {
 
         $('#engineProtPrice').html(`&#x20b9; ${engineProtPrice}`)
     }
+
+    showeEnchancementSum();
 }
 
 engineProtection.addEventListener('change', () => {
@@ -452,9 +455,25 @@ function showConsumablePrice() {
 
         $('#consumablePrice').html(`&#x20b9; ${consumablePrice}`)
     }
+
+    showeEnchancementSum();
 }
 
 
 consumableCheck.addEventListener('change', () => {
     showConsumablePrice();
 })
+
+function showeEnchancementSum() {
+
+    let sumEnhance = nilDepPrice + engineProtPrice + consumablePrice;
+    $('#sumEnchacement').html(`&#x20b9; ${sumEnhance}`);
+
+    let total = sumEnhance + sumPack + sumThirdParty;
+    $('#totalSum').html(`&#x20b9; ${total}`);
+
+    let gst = 0.18 * total;
+
+    $('#totalGST').html(`&#x20b9; ${gst}`);
+    $('#totalWithGST').html(`&#x20b9; ${total + gst}`);
+}
